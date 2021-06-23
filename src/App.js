@@ -24,6 +24,7 @@ function App() {
       reminder: true,
     },
   ]);
+  const [showAddTask, setShowAddTask] = useState(false)
 
   //Add Task
   const addTask = (task) => {
@@ -50,8 +51,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <AddTask onAdd={addTask}/>
+      <Header onShow={() => setShowAddTask(!showAddTask)} />
+     {showAddTask && <AddTask  onShow={() => setShowAddTask(!showAddTask)} onAdd={addTask}/>}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (

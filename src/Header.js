@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
 
-function Header({ title }) {
+function Header({ title, onShow }) {
   return (
     <header className="header">
       <h1>{title}</h1>
-      <Button color="green" text="Add"/>
+      <Button onShow={onShow} color="green" text="Add"/>
     </header>
   );
 }
